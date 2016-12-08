@@ -1,0 +1,140 @@
+<form id="new copy-form" class="panel panel-default" ng-submit="registerLending();">
+	<header class="panel-heading form-header">
+		<a class="btn btn-default btn-traslucid pull-left" ng-href="#book/list">
+			<i class="material-icons">arrow_back</i>
+		</a>
+		<span>Arrendamientos</span>
+		<button class="btn  btn-traslucid btn-default pull-right" type="submit" >
+			<i class="material-icons">done</i>
+		</button>
+	</header>
+
+	<fieldset class="panel-body container-fluid">
+		<legend>Información</legend>
+		<div class="row">
+
+			<div class="col-xs-10 col-sm-6">
+				<div class="form-group">
+					<label>Fecha de Renta</label>
+					<input class="form-control" type="date" ng-model="lending.authorizatedAt" disabled="true">
+				</div>
+			</div>
+			<div class="col-xs-10 col-sm-6">
+				<div class="form-group">
+					<label>Fecha de Devolucion</label>
+					<input type="date" class="form-control" ng-model="lending.returnAt" required>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+
+
+	<fieldset class="panel-body container-fluid">
+		<legend>Cliente</legend>
+		<div class="row">
+
+			<div class="col-xs-12 col-sm-8">
+				<!--
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="alert alert-danger">
+							<strong>Notice:</strong> This user has no right to lendings.
+						</div>
+					</div>
+				</div>
+				-->
+				
+					<div class="form-group row">
+						<div class="col-xs-8 col-md-4">
+							<label>ID</label>
+							<input class="form-control" type="text" name="reader" ng-model="userToLend._id" disabled="true" required>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-xs-12 col-md-7">
+							<label>Cliente</label>
+							<input type="text" class="form-control" ng-model="userToLend.completeName" disabled="true">
+						</div>
+					</div>
+				<!--
+				<div class="form-group">
+					<div class="row">
+						<div class="col-xs-6 col-md-4">
+							<label>Books Lent</label>
+							<input class="form-control" type="text" ng-model="userToLend.borrowedBooks" disabled="true">
+						</div>
+						<div class="col-xs-6 col-md-4">
+							<label>Lendings Expired</label>
+							<input type="text" class="form-control" ng-model="userToLend.lendingsExpired" disabled="true">
+						</div>
+					</div>
+				</div>
+				-->
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<figure> <img id="preview-img" class="img-responsive center-block" ng-src="{{imageFromBackend(userToLend.profilePhoto)}}" alt="User profile photo" width="60%" /> </figure>
+			</div>
+		</div>
+	</fieldset>
+
+
+	<fieldset class="panel-body container-fluid">
+		<legend>Unidad Rentada</legend>
+		<div class="row">
+			<div class="col-xs-12 col-sm-8">
+					
+					<div class="form-group row">
+						<div class="col-xs-12 col-md-4">
+							<label>Auto ID</label>
+							<input class="form-control" type="text" ng-model="copyToLend._id" ng-change="changeCopyId();" required>
+						</div>
+					</div>
+					<div class="form-group row">
+						
+						<div class="col-xs-12 col-md-8">
+							<label>Marca</label>
+							<input type="text" class="form-control" ng-model="copyToLend.book.title" disabled="true">
+						</div>
+					</div>
+
+
+					<div class="form-group row">
+					
+					<div class="col-xs-12 col-md-8">
+						<label for="edition">Modelo</label>
+						<input id="edition" name="edition" class="form-control" ng-model="copyToLend.edition" disabled="true">
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-xs-12 col-md-4">
+						<label for="language">Color</label>
+						<select id="language" name="language" class="form-control" ng-model="copyToLend.language" disabled="true">
+							<option value="Rojo">Rojo</option>
+							<option value="Blanco">Blanco</option>
+							<option value="Plata">Plata</option>
+							<option value="Dorado"> Dorado </option>
+							<option value="Gris"> Gris </option>
+							<option value="Negro">Negro</option>
+							<option value="Azul">Azul</option>
+							<option value="Verde">Verde</option>
+							<option value="Amarillo">Amarillo</option>
+							<option value="Naranja">Naranja</option>
+						</select>
+					</div>
+					<div class="col-xs-12 col-md-4">
+						<label for="pages">Precio Por Dia</label>
+						<input type="text" class="form-control" ng-model="copyToLend.pages" disabled="true">
+					</div>
+				</div>
+				
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<figure> <img id="preview-img" class="img-responsive center-block" ng-src="{{imageFromBackend(copyToLend.book.cover_photo)}}" alt="Book cover" width="60%" /> </figure>
+			</div>
+		</div>
+
+	</fieldset>
+
+</form>
+
+<div ng-include="'/admin/response-dialog-view'"></div>

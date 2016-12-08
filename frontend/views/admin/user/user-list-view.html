@@ -1,0 +1,84 @@
+<style>
+        article section.panel-body{
+            height: 170px;
+            max-height: 170px;
+            min-height: 170px;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+<div class="jumbotron">
+    <h1>Clientes</h1>
+    <p>Clientes Registrados</p>
+</div>
+
+<div class="row">
+	<div class= "col-sm-4">
+		<form class="well">
+			<input type="text" class="form-control" placeholder="Introduce Nombre del Cliente" ng-model="nameSearch"/>
+            <br>
+            <br>
+		</form>
+	</div>
+
+<div class="col-sm-8">
+	
+</div>
+</div>
+
+<div load-users>
+    <article class="info-card col-xs-12 col-sm-6 col-lg-4" ng-repeat="user in dataList |filter:{name:nameSearch}">
+        <div class="panel panel-default">
+            <header class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-10"><strong>ID: {{user._id}} </strong></div>
+                    <div class="col-xs-2">
+                        <div class="dropdown">
+                            <span class="glyphicon glyphicon-option-vertical pull-right options-menu dropdown-toggle" 
+                            data-toggle="dropdown"></span>
+                            <ul class="dropdown-menu">
+                                <li><a ng-href='#user/{{user._id}}/lend' ng-click="setupToLend(user);">Rentar un Auto</a></li>
+                                <li><a ng-href='#user/{{user._id}}/edit' ng-click="setupToUpdate(user);">Editar</a></li>
+                                <li><a href="" class='list-group-item popup-list-item' data-toggle="modal" data-target="#delete-modal" ng-click='setupToDelete(user._id);'>Eliminar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section class="panel-body">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h4>Nombre</h4>
+                        <p>{{user.name}} {{user.lastname}}</p>
+                        <h4>Teléfono</h4>
+                        <p>{{user.phone}}</p>
+                    </div>
+                     <div class="col-xs-6">
+                        <figure class="center-block">
+                            <figcaption>
+                                <h4>Foto del Cliente</h4></figcaption><img class="img-thumbnail user-profile-photo center-block" ng-src="{{imageFromBackend(user.profilePhoto)}}" alt="User Profile Photo" width="100px" height="100px" data-toggle="modal" data-target="" /> </figure>
+                            </div>
+                        </div>                            
+                    </section>
+                    <div class="panel-footer">
+                        <a 
+                        ng-href="#user/{{user._id}}/info"
+                        class="btn btn-primary"
+                        data-toggle="modal" 
+                        data-target="#info-modal" 
+                        ng-click="showInfo(user);"> Más Información 
+                        </a>
+                    </div>
+                </div>
+            </article>
+</div>
+<div class="fixed">
+    <a class="floating-btn btn btn-primary" href="#user/new"><i class="material-icons">add</i></a>
+</div>
+
+<div ng-include="'/admin/delete-dialog-view'"></div>

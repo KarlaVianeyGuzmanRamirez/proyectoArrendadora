@@ -1,0 +1,71 @@
+<style>
+	.label {
+		font-size: 18px;
+	}
+
+	p {
+		font-size: 18px;
+	}
+
+	h3 {
+		font-weight: bold;
+	}
+
+</style>
+<div class="panel panel-default" lib-book-info>
+	<div class="panel-heading">
+	<h1>Informacion Cliente</h1>
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			<div id="book-info" class="col-sm-6 ">
+			
+				<h3>ID</h3>
+				<p ng-bind="userInfo._id"></p>
+				<h3>Nombre</h3>
+				<p> {{userInfo.name + ' ' + userInfo.lastname}} </p>
+				<h3>Direccion</h3>
+				<p ng-bind="userInfo.address"></p>
+				<h3>Teléfono</h3>
+				<p ng-bind="userInfo.phone"></p>
+				
+			</div>
+			<div class="col-sm-6">
+				<figure> <img class="img-thumbnail center-block" ng-src="{{imageFromBackend(userInfo.profilePhoto)}}" alt="Book´s cover" width="60%" /> </figure>
+			</div>
+			
+		</div>
+		<div class="row">
+		
+		</div>
+	</div>
+	<hr>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>Autos Rentados</h2>
+				<div class="table-responsive">
+				<table id="copies-table" class="table table-bordered">
+					<thead>
+						<tr>
+							
+							<th>Unidad</th>
+							<th>Dia De Renta</th>
+							<th>Dia de Devolucion</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="copy in userInfo.copies"> 
+								
+							<td ng-bind="copy._id"></td>
+							<td ng-bind="copy.lentAt"></td>
+							<td ng-bind="copy.returnAt"></td>
+						</tr> 
+					</tbody>
+				</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

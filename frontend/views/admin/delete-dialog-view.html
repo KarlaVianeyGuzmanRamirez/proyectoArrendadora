@@ -1,0 +1,21 @@
+ <div class="modal " id="delete-modal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirm the operation</h3>
+            </div>
+            <div class="modal-body center-block">
+                <h4>Are you sure about delete this element?</h4>
+                <h5 ng-bind="deleteMessage"></h5>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">NO, STOP THIS!</button>
+                <button class="btn btn-warning" ng-click="delete();" data-dismiss="modal" data-toggle="modal" 
+                    data-target="#wait-modal">YES, I'M SURE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'/admin/response-dialog-view'"></div>
+        

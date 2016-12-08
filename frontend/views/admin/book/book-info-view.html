@@ -1,0 +1,77 @@
+<style>
+	.label {
+		font-size: 18px;
+	}
+
+	p {
+		font-size: 18px;
+	}
+
+	h3 {
+		font-weight: bold;
+	}
+
+</style>
+<div class="panel panel-default" lib-book-info>
+	<div class="panel-heading">
+	<h1>Listado de Autos En Renta</h1>
+	</div>
+	<div aling="center" class="panel-body">
+		<div aling="center" class="row">
+			<div  class="col-sm-6">
+				<figure> <img class="img-thumbnail center-block" ng-src="{{imageFromBackend(bookInfo.cover_photo)}}" alt="Book´s cover" width="60%" /> </figure>
+				</div>
+				<br>
+			<div id="book-info" class="col-sm-6 ">
+			<div class="container-fluid">
+				<h3>Marca</h3>
+				<p class="text-justify" ng-bind="bookInfo.title"></p>
+				</div> 
+			
+			
+		<div class="container-fluid">
+		<h3>Descripcion</h3>
+				<p class="text-justify" ng-bind="bookInfo.description"></p>
+		</div>
+		</div>
+		</div>
+			
+			</div>
+		
+	</div>
+	<hr>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>Autos</h2>
+				<div class="table-responsive">
+				<table id="copies-table" class="table table-bordered">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Modelo</th>
+							<th>Precio Dia</th>
+						
+							<th>Color</th>
+							
+					
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="copy in bookInfo.copies"> 
+							<td ng-bind="copy._id"></td>
+							<td ng-bind="copy.edition"></td>
+							<td ng-bind="copy.pages"></td>
+							<td ng-bind="copy.language"></td>
+							
+
+							<td> <button class="btn btn-warning btn-block" ng-click="deleteCopy(copy._id)">DELETE</button></td>
+							<td> <div ng-if="copy.availability != 'available'" ><button class="btn btn-success btn-block" ng-disabled="" ng-click="returnBook(copy._id)">RETURN</button></div></td>
+						</tr> 
+					</tbody>
+				</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

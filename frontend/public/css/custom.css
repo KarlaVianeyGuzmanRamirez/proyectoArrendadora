@@ -1,0 +1,197 @@
+ body {
+     background: #dfdfdf!important;
+ }
+ 
+ .nopadding {
+     padding: 0px !important;
+     margin: 0 !important;
+ }
+ 
+ .fill {
+     height: calc(100vh - 65px);
+     padding: 16px;
+ }
+ 
+.sidebar {
+     padding: 16px;
+     background: white;
+}
+
+ .overflow {
+     overflow-y: scroll;
+     overflow-x: hidden;
+ }
+ 
+ 
+ .popup-list-item {
+     margin: 0px;
+     border: 0px solid;
+ }
+ 
+ .btn {
+     text-transform: uppercase;
+ }
+ 
+ .navbar-fixed-bottom {
+     margin: 0px;
+ }
+ 
+ .sidebar-item {
+     font-size: 24px;
+     color: #337ab7;
+ }
+ 
+ .cover-image {
+     cursor: pointer;
+ }
+ 
+ .btn-traslucid {
+     background-color: transparent;
+ }
+
+ .form-header {
+     font-size: 32px !important;
+     /*padding: 12px;*/
+ }
+
+ .form-header > span {
+     padding-left: 24px;
+ }
+
+ .panel {
+  margin-bottom: 0px;
+ }
+ 
+ hr {
+     margin-top: 1px;
+ }
+
+ .info-card {
+    margin-bottom: 16px;
+ }
+
+
+.loading-ic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 10px solid;
+    border-color: #dedede;
+    border-top-color: #ababab;
+}
+
+.ic-large {
+    width: 100px;
+    height: 100px;
+    border-width: 15px;
+}
+
+/*TAKED FROM http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip*/
+.ic-spin {
+  -webkit-animation: spin 2s infinite ease;
+  -moz-animation: spin 2s infinite ease;
+  -o-animation: spin 2s infinite ease;
+  animation: spin 2s infinite ease;
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+
+.fixed{
+    position: fixed; 
+        bottom: 30px; 
+        right: 60px;
+}
+.floating-btn{
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  outline: none;
+  font-size: 30px;
+  box-shadow: 0px 6px 5px #666666;
+  -webkit-transition: width 0.5s; /* Safari */
+  transition: width 0.5s;
+  -webkit-transition: height 0.5s; /* Safari */
+  transition: height 0.5s;
+}
+
+.floating-btn:hover {
+  box-shadow: 0px 7px 6px #666666;
+  outline: none !important;
+}
+
+.floating-btn:focus, .floating-btn:active {
+   box-shadow: 0px 7px 6px #666666;
+  outline: none !important;
+}
+
+@media only screen and (min-width: 600px) {
+    .floating-btn{
+        width: 60px;
+        height: 60px;
+        font-size: 35px;
+     }
+}
+
+@media only screen and (min-width: 768px) {
+    .floating-btn{
+        width: 70px;
+        height: 70px;
+        font-size: 40px;
+     }
+     
+}
+
+.material-icons {
+  padding: 4px;
+}
+
+.card-icon {
+  color: #444444 !important;
+  text-decoration: none !important;
+  padding: 5px;
+}
+
+.card-icon:active {
+  background: #EEEEEE;
+}
+
+
+.card-icon:hover {
+  text-decoration: none;
+  border: 1px solid lightgrey;
+  padding: 4px;
+}

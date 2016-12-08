@@ -1,0 +1,24 @@
+{
+  "name": "library",
+  "description": "",
+  "main": "/bin/www",
+  "authors": [
+    "Victor Daniel Rebolloso Degante <vrebo.deg@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bootstrap-select": "^1.11.2",
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
+}

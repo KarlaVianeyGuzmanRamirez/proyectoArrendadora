@@ -1,0 +1,68 @@
+<form id="new copy-form" class="panel panel-default" ng-submit="createCopy();">
+	<header class="panel-heading form-header">
+		<a class="btn btn-default btn-traslucid pull-left" ng-href="#book/list">
+			<i class="material-icons">arrow_back</i>
+		</a>
+		<span>Registro de Autos</span>
+		<button class="btn  btn-traslucid btn-default pull-right" type="submit" >
+			<i class="material-icons">save</i>
+		</button>
+	</header>
+	<fieldset class="panel-body container-fluid">
+		<legend>Informacion de la Marca</legend>
+		<div class="form-group">
+			<input id="book-id" name="book" hidden="true" ng-model="bookToCopy._id" />
+			<div class="row">
+				
+				<div class="col-xs-12 col-sm-7">
+					<label>Marca</label>
+					<input type="text" class="form-control" ng-model="bookToCopy.title" disabled="true">
+				</div>
+			</div>
+		</div>
+	</fieldset>
+
+	<fieldset class="panel-body container-fluid">
+		<legend>Nuevo Auto</legend>
+		<div class="row">
+
+		<div class="form-group col-xs-12 col-sm-10 row">
+			
+			<div class="col-xs-12 col-sm-4">
+				<label for="edition">Modelo</label>
+				<input type="text" class="form-control" id="edition" name="edition" ng-model="copy.edition" required> </div>
+		
+			<div class="col-xs-12 col-sm-4">
+				<label for="language">Color</label>
+				<select id="language" name="language" class="form-control" ng-model="copy.language">
+					<option value="Rojo">Rojo</option>
+					<option value="Blanco">Blanco</option>
+					<option value="Plata">Plata</option>
+					<option value="Dorado"> Dorado </option>
+					<option value="Gris"> Gris </option>
+					<option value="Negro">Negro</option>
+					<option value="Azul">Azul</option>
+					<option value="Verde">Verde</option>
+					<option value="Amarillo">Amarillo</option>
+					<option value="Naranja">Naranja</option>
+				</select>
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<label for="pages">Precio por Dia</label>
+				<input id="pages" name="pages" class="form-control" type="number" min="1000" value="1000" ng-model="copyToLend.pages"/> </div>
+
+			
+					                       
+					</div>
+				</div>
+
+				
+			</div>
+
+		</div>
+
+</fieldset>
+
+</form>
+
+<div ng-include="'/admin/response-dialog-view'"></div>

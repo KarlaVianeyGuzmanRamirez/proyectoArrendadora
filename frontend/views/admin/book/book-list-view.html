@@ -1,0 +1,79 @@
+ <style>
+        article section.panel-body{
+            height: 310px;
+            max-height: 310px;
+            min-height: 310px;
+            overflow: hidden;
+        }
+
+</style>
+
+<div class="jumbotron"><h1>Catalogo de Marcas</h1></div>
+<div class="row">
+   
+    <div class="col-sm-4">
+        <form class="well">
+            <input type="text" class="form-control" placeholder="Escribe la marca que buscas" ng-model="title"/>
+        </form>    
+    </div>
+    
+</div>
+
+    <article ng-repeat="book in dataList | filterByTitle : title" class="info-card repeated-item col-xs-12 col-sm-4 col-md-4 ">
+    <div class="panel panel-default">
+
+        <header class="panel-heading">
+            <div class="row">
+                <div class="col-xs-10"><strong>Arrendadora Doña Pancha</strong></div>
+                <div class="col-xs-2"> 
+                    <div class="dropdown">
+                        <span class="glyphicon glyphicon-option-vertical pull-right options-menu dropdown-toggle" 
+                        data-toggle="dropdown"></span>
+                        <ul class="dropdown-menu">
+                            <li><a ng-href='#book/{{book._id}}/copy' ng-click='setBookToCopy(book);'>Agregar un nuevo Auto</a></li>
+                            <li><a ng-href='#book/{{book._id}}/edit' ng-click="setupToUpdate(book);">Editar Marca</a></li>
+                            <li><a href="" data-toggle='modal' data-target='#delete-modal' ng-click='setupToDelete(book._id);'>Eliminar Marca</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="panel-body">
+            <div class="row">
+                <div class="col-sm-7 col-md-7 col-lg-7">
+                    <h4 align="center">Marca</h4>
+                    <p align="center">{{book.title}}</p>
+                   
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-5 hidden-xs">
+                    <figure> <img class="img-thumbnail center-block cover-image" ng-src="{{imageFromBackend(book.cover_photo)}}" onclick="setupModalImage(this);" alt="Book´s cover" width="250" data-toggle="modal" data-target="#modal" />
+                        <figcaption>
+                            <h4 aling="center" > </h4></figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4>Descripcion</h4>
+                        <p>{{cutAbstract(book.description)}}</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="panel-footer">
+                <a 
+                ng-href="#book/{{book._id}}/info" 
+                ng-click="showInfo(book);"
+                class="btn btn-primary" > Ver Lista de Autos
+                 </a>
+            </div>
+
+        </div>
+    </article>
+
+<div class="fixed">
+    <a class="floating-btn btn btn-primary" href="#book/new"><i class="material-icons">add</i></a>
+</div>
+
+<div ng-include="'/admin/delete-dialog-view'"></div>

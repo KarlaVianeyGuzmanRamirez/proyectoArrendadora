@@ -1,0 +1,77 @@
+ <div lib-user-to-edit>
+ <form id="edit-user-form" class="panel panel-default" enctype="multipart/form-data"  ng-submit="update();">
+    <header class="panel-heading form-header">
+        <a class="btn btn-traslucid btn-default pull-left" href="#user/list">
+            <i class="material-icons">arrow_back</i>
+        </a>
+        <span>Actualizar Cliente</span>
+        <button 
+        class="btn btn-traslucid btn-default pull-right" 
+        type="submit" >
+        <i class="material-icons">save</i>
+    </button>
+</header>
+
+
+<div class="panel-body row">
+    <fieldset class="col-sm-6 col-md-8">
+        <legend>Información Personal</legend>
+        <div class="form-group">
+            <div class="col-xs-12 col-md-6">
+                <label for="name">Nombre:</label>
+                <input 
+                type="text"
+                class="form-control input-lg"
+                id="name"
+                name="name"
+                ng-model="dataToUpdate.name"
+                required> </div>
+                <div class="col-xs-12 col-md-6">
+                    <label for="lastname">Apellido:</label>
+                    <input 
+                    type="lastname"
+                    class="form-control input-lg"
+                    id="lastname"
+                    name="lastname"
+                    ng-model="dataToUpdate.lastname"
+                    required> </div>
+                </div>
+
+                <br/>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <label for="address">Dirección:</label>
+                        <input 
+                        type="text"
+                        class="form-control input-lg"
+                        id="address"
+                        name="address"
+                        ng-model="dataToUpdate.address"
+                        required> </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 col-md-4">
+                            <label for="phone">Teléfono:</label>
+                            <input 
+                            type="text" 
+                            class="form-control input-lg" 
+                            id="phone" 
+                            name="phone"
+                            ng-model="dataToUpdate.phone"
+                            required> </div>
+                            
+                        </fieldset>
+                        <fieldset class="col-sm-6 col-md-4">
+                            <legend>Foto</legend>
+                            <div class="form-group">
+                                <figure> <img id="prof-photo-edit-prev" class="img-responsive center-block" ng-src="{{imageFromBackend(dataToUpdate.profilePhoto)}}" alt="User profile photo" width="60%" /> </figure>
+                                <br/>
+                                <label class="btn btn-default btn-lg btn-block">
+                                    <input id="profile-photo-input" style="display:none;" name="profile-photo" type="file" accept="image/*"  onchange="angular.element(this).scope().showPreviewImg('prof-photo-edit-prev', this)"/><span class="glyphicon glyphicon-upload"></span> CARGAR IMAGEN
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </form>
+</div>
+<div ng-include="'/admin/response-dialog-view'"></div>
